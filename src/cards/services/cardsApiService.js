@@ -3,7 +3,8 @@ import axios from "axios";
 
 
 // const apiUrl = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards";
-const apiUrl = "http://127.0.0.1:8181/cards";
+//const apiUrl = "http://127.0.0.1:8181/cards";
+const apiUrl = "https://simpleserver-kkiu.onrender.com/cards";
 
 export const handleGetAllCards = async () => {
     try {

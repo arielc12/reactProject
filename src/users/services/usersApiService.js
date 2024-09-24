@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const apiUrl = "https://monkfish-app-z9uza.ondigitalocean.app/bcard2/users";
-const apiUrl = "http://127.0.0.1:8181/users";
+//const apiUrl = "http://127.0.0.1:8181/users";
+const apiUrl = "https://simpleserver-kkiu.onrender.com/users";
 
 export const login = async (userLogin) => {
   try {
