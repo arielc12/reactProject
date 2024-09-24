@@ -6,7 +6,7 @@ import { Grid, FormControlLabel, Checkbox } from "@mui/material";
 export default function SignupForm({
   onSubmit,
   onReset,
-  validateForm,
+  isFormValid,
   title,
   errors,
   data,
@@ -17,7 +17,7 @@ export default function SignupForm({
     <Form
       onSubmit={onSubmit}
       onReset={onReset}
-      validateForm={validateForm}
+      isFormValid={isFormValid}
       title={title}
       styles={{ maxWidth: "800px" }}
     >

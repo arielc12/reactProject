@@ -1,6 +1,6 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import { CardActionArea, CardHeader } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import CardHeaderComponent from "./CardHeaderComponent";
 import CardBody from "./CardBody";
 import CardActionBar from "./CardActionBar";
@@ -29,10 +29,11 @@ export default function CardComponent({
         <CardBody
           phone={card.phone}
           address={card.address}
-          bizNumber={card.bizNumber}
+          description={card.description}
         />
       </CardActionArea>
       <CardActionBar
+        card={card}
         cardId={card._id}
         handleDelete={handleDelete}
         handleLike={handleLike}

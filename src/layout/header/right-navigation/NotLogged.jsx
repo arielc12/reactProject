@@ -1,13 +1,17 @@
 import React from "react";
-import NavBarItem from "../../../routes/components/NavBarItem";
-import { Box } from "@mui/material";
-import ROUTES from "../../../routes/routesModel";
+import { Avatar, IconButton, Tooltip } from "@mui/material";
+import { useMenu } from "../menu/MenuProvider";
+
 
 export default function NotLogged() {
+  const setOpen = useMenu();
   return (
-    <Box>
-      <NavBarItem label="Signup" to={ROUTES.SIGNUP} />
-      <NavBarItem label="Login" to={ROUTES.LOGIN} />
-    </Box>
+    <div>
+      <Tooltip title="login/signup" >
+        <IconButton sx={{ p: 0, display: "inline-flex", marginLeft: 2 }} onClick={() => setOpen(true)}>
+          <Avatar alt="avatar" src="/images/avatar.png" />
+        </IconButton>
+      </Tooltip>
+    </div>
   );
 }

@@ -1,8 +1,10 @@
 import React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
+import { useTheme } from "@emotion/react";
 
-const Spinner = ({ color = "primary", size = 40, height = "50vh" }) => {
+const Spinner = ({ size = 40, height = "50vh" }) => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -12,9 +14,8 @@ const Spinner = ({ color = "primary", size = 40, height = "50vh" }) => {
       }}
     >
       <CircularProgress
-        color={color}
         size={size}
-        sx={{ alignSelf: "center" }}
+        sx={{ alignSelf: "center", color: theme.palette.mode === "dark" ? "white" : "black" }}
       />
     </Box>
   );

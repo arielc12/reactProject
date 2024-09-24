@@ -10,15 +10,13 @@ import PageHeader from "../../components/PageHeader";
 import Form from "../../forms/components/Form";
 import Input from "../../forms/components/Input";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 import useUsers from "../hooks/useUsers";
-import { useSnack } from "../../providers/SnackbarProvider";
+
 
 export default function LoginPage() {
-  const { isLoading, error, handleLogin } = useUsers();
+  const { handleLogin } = useUsers();
 
-  const { data, errors, handleChange, handleReset, validateForm, onSubmit } =
+  const { data, errors, handleChange, handleReset, isFormValid, onSubmit } =
     useForm(initialLoginForm, loginSchema, handleLogin);
 
   const { user } = useCurrentUser();
@@ -45,7 +43,7 @@ export default function LoginPage() {
           to={ROUTES.ROOT}
           onSubmit={onSubmit}
           onReset={handleReset}
-          validateForm={validateForm}
+          isFormValid={isFormValid}
         >
           <Input
             label="email"

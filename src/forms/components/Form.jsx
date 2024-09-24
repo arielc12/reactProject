@@ -5,12 +5,13 @@ import FormButton from "./FormButton";
 import { useNavigate } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import LoopIcon from "@mui/icons-material/Loop";
+import { useTheme } from "@emotion/react";
 
 const Form = ({
   title = "",
   onSubmit,
   onReset,
-  validateForm,
+  isFormValid,
   to = "/",
   color = "inherit",
   spacing = 1,
@@ -18,6 +19,7 @@ const Form = ({
   children,
 }) => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
     <Box
@@ -28,7 +30,7 @@ const Form = ({
       autoComplete="off"
       noValidate
     >
-      <Typography align="center" variant="h5" component="h1" mb={2}>
+      <Typography align="center" variant="h5" component="h1" mb={2} sx={{ color: theme.palette.mode === "dark" ? "white" : "black" }}>
         {title.toUpperCase()}
       </Typography>
 
@@ -58,7 +60,7 @@ const Form = ({
           <FormButton
             node="Submit"
             onClick={onSubmit}
-            disabled={!validateForm()}
+            disabled={!isFormValid}
             size="large"
           />
         </Grid>

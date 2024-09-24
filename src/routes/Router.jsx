@@ -10,6 +10,10 @@ import MyCardsPage from "../cards/pages/MyCardsPage";
 import SandboxPage from "../sandbox/SandboxPage";
 import SignupPage from "../users/pages/SignupPage";
 import CardDetailsPage from "../cards/pages/CardDetailsPage";
+import CreateCardPage from "../cards/pages/CreateCardPage";
+import EditCardPage from "../cards/pages/EditCardPage";
+import ProfilePage from "../users/pages/ProfilePage";
+import EditProfilePage from "../users/pages/EditProfilePage";
 
 export default function Router() {
   return (
@@ -22,6 +26,10 @@ export default function Router() {
       <Route path={ROUTES.MY_CARDS} element={<MyCardsPage />} />
       <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
       <Route path={ROUTES.CARD_INFO + "/:id"} element={<CardDetailsPage />} />
+      <Route path={ROUTES.CREATE_CARD} element={<CreateCardPage />} />
+      <Route path={ROUTES.EDIT_CARD + "/:id"} element={<EditCardPage />} />
+      <Route path={ROUTES.USER_PROFILE + "/:id"} element={<ProfilePage />} />
+      <Route path={ROUTES.EDIT_USER + "/:id"} element={<EditProfilePage />} />
       <Route path={ROUTES.SANDBOX} element={<SandboxPage />} />
 
       <Route path="*" element={<ErrorPage />} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import {
@@ -12,10 +12,12 @@ import {
 import PageHeader from "../../components/PageHeader";
 import useCards from "../hooks/useCards";
 import Error from "../../components/Error";
+import { useTheme } from "@emotion/react";
 
 export default function CardDetailsPage() {
   const { card, isLoading, error, getCardById } = useCards();
   const { id } = useParams();
+  const theme = useTheme();
 
   useEffect(() => {
     getCardById(id);
@@ -25,7 +27,7 @@ export default function CardDetailsPage() {
   if (error) return <Error errorMessage={error} />;
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container >
       <PageHeader
         title="Card Details"
         subtitle="Here you can find detailed information about the card"
@@ -74,15 +76,21 @@ export default function CardDetailsPage() {
             </Typography>
             <Divider sx={{ my: 2 }} />
             <Typography variant="body2" color="text.secondary">
-              This card represents a business entity and provides essential
-              contact details. Use it to reach out to the business, visit their
-              location, or verify their credentials. The information provided
-              includes a phone number, address, and a unique card number for
-              identification.
+              {card.description}
             </Typography>
           </Paper>
         </Grid>
       </Grid>
+      <Divider sx={{ my: 10 }} />
+      <Typography sx={{
+        color: theme.palette.mode === "dark" ? "white" : "black",
+      }}>
+        This card represents a business entity and provides essential
+        contact details. Use it to reach out to the business, visit their
+        location, or verify their credentials. The information provided
+        includes a phone number, address, and a unique card number for
+        identification.
+      </Typography>
     </Container>
   );
 }
